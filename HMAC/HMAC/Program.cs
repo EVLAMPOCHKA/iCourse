@@ -16,9 +16,10 @@ namespace HMAC
                 while(true)
                 {
                     string key = GenerateRandomKey(16);
-                    Console.WriteLine($"HMAC key: {key}");
-                    Console.WriteLine();
                     var choice = GenerateComputerChoice(args);
+                    Console.WriteLine($"HMAC: {GenerateHMAC(args[choice], key)}");                    
+                    Console.WriteLine();
+                    
                     Menu(args);
                     var userMove = MakeUserMove(args.Length);
 
@@ -37,7 +38,7 @@ namespace HMAC
 
                     Console.WriteLine($"Your move: {args[userMove - 1]}");
                     Console.WriteLine($"PC move: {args[choice]}");
-                    Console.WriteLine($"HMAC: {GenerateHMAC(args[choice], key)}");
+                    Console.WriteLine($"HMAC key: {key}");
                     Console.WriteLine("Press any key to try again");
                     Console.ReadKey();
                     Console.Clear();
